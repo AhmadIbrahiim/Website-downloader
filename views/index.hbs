@@ -1,0 +1,39 @@
+
+
+<!-- partial:index.partial.html -->
+<header>
+  <div aria-busy="true" id="progress" hidden aria-label="Loading, please wait." role="progressbar"></div>
+</header>
+<main role="main">
+  <img src="https://www.google.com/inbox/assets/images/intro/intro-logo.png" width="100" alt="" />
+  <h1>Website Downloader</h1>
+  <p>Download all the source code and assets of any website</p>
+   <div class="container">
+  <div class="row">
+    <div class="col-lg-12" style="float: none; margin: 0 auto;">
+      <div id="custom-search-input">
+          <form method="get" class="form" action="/search">
+        <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" id="website" placeholder="https://www.google.com" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" id="download" type="button">
+                        <i class="glyphicon glyphicon-download"></i>
+                    </button>
+                </span>
+              </form>
+              
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <h5 hidden id='nFilesP'>Total Downloaded file: <span  id='nFiles' style="color: red;font-weight: bold">10</span></h5>
+  <p  class="log" id='log'></p>
+  <button style="display: none" class="btn btn-success">Download website assets</button>
+</div> 
+
+
+  
+</main>
+<!-- partial -->
+  
