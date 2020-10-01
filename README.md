@@ -1,5 +1,5 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader/badge)](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader)
-## Website Downloader 💾
+## Complete Website Downloader 💾
 Download the complete source code of any website (including all assets) 🔨.
 
 👉 Live Demo: https://site-dwloader.herokuapp.com/
