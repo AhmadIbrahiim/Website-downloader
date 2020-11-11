@@ -29,4 +29,11 @@ Download the complete source code of any website (including all assets) 🔨.
 
 
 
+# How To Contribute:
+ - Open Issue with any bug you noticed.
+ - Let us know if We&You can add new features.
+ - PR and changes you think it'd be an added value.
 
+
+Thank you so much,
+https://www.ahmed-ibrahim.com
