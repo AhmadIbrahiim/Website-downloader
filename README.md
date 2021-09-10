@@ -27,6 +27,19 @@ Download the complete source code of any website (including all assets) 🔨.
 - `$ npm install`
 - `$ react-scripts start`
 
+## How to build the dockerfile 
+
+- Gcloud
+```
+gcloud builds submit --tag gcr.io/<project>/<image_name>
+```
+
+- Docker
+```
+docker build -t <docker_name>/<image_name> .
+docker push <docker_name>/<image_name>
+```
+
 
 
 # How To Contribute:
