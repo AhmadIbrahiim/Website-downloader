@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "export NODE_ENV=Development && npm start"
+    "start": "react-scripts start",
+    "dev": "export NODE_ENV=Development && npm start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "archiver": "^3.1.1",
@@ -15,7 +18,20 @@
     "http-errors": "~1.6.3",
     "jszip": "^3.2.2",
     "morgan": "~1.9.1",
+    "react-scripts": "^4.0.3",
     "socket.io": "^2.4.0",
     "socket.io-client": "^2.3.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

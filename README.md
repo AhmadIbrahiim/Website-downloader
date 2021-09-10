@@ -25,7 +25,7 @@ Download the complete source code of any website (including all assets) 🔨.
 
 - git clone this repo
 - `$ npm install`
-- `$ npm start`
+- `$ react-scripts start`
 
 
 
