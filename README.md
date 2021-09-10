@@ -23,7 +23,7 @@ Download the complete source code of any website (including all assets) 🔨.
 
 ## How to run it 🤔
 
-- git clone this repo
+- `$ git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
 - `$ npm install`
 - `$ react-scripts start`
 
