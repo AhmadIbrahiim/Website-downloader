@@ -4,8 +4,8 @@ updates:
     open-pull-requests-limit: 10
     directory: "/"
     schedule:
-      interval: "monthly"
-      day: "tuesday"
+      interval: "weekly"
+      day: "wednesday"
     commit-message:
       prefix: "npm"
       include: "scope"
@@ -14,8 +14,8 @@ updates:
     open-pull-requests-limit: 10
     directory: "/"
     schedule:
-      interval: "monthly"
-      day: "tuesday"
+      interval: "weekly"
+      day: "wednesday"
     commit-message:
       prefix: "github"
       include: "scope"
