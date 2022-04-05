@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    open-pull-requests-limit: 10
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "tuesday"
+    commit-message:
+      prefix: "npm"
+      include: "scope"
+
+  - package-ecosystem: "github-actions"
+    open-pull-requests-limit: 10
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "tuesday"
+    commit-message:
+      prefix: "github"
+      include: "scope"
