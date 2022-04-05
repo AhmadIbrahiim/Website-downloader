@@ -13,7 +13,7 @@
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "morgan": "~1.9.1",
     "socket.io": "^2.4.0",
     "socket.io-client": "^2.3.0"
