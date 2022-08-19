@@ -38,7 +38,7 @@ Download the complete source code of any website (including all assets) 🔨.
 
 # How To Contribute:
  - Open Issue(s) with any bugs you notice.
- - Please create Pull Requests if you think it'd be an added value towards our program.
+ - Please create Pull Requests if you think it would be an added value towards our program.
 
 
 Thank you,
