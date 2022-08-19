@@ -1,14 +1,19 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader/badge)](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader)
 ## Complete Website Downloader 💾
 Download the complete source code of any website (including all assets) 🔨.
 
 👉 Live Demo: https://site-dwloader.herokuapp.com/
 
 ![enter image description here](https://github.com/AhmadIbrahiim/Website-downloader/blob/master/public/Record.gif?raw=true)
+<div align="center">
+
+  <a href="">![CodeFactor](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader/badge)</a>
+
+</div>
+
 ## Description 📒
  Website downloader works with `wget` and `archiver` to download all websites assets and compress then sends it back to the user through socket channel
  
- **Wget params the being used**
+ **wget params the being used**
  
  `wget --mirror --convert-links --adjust-extension --page-requisites 
 --no-parent http://example.org`
