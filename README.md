@@ -23,7 +23,8 @@ Download the complete source code of any website (including all assets) 🔨.
 
 ## How to run it 🤔
 
-- git clone this repo
+- `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
+- `cd website-downloader`
 - `$ npm install`
 - `$ npm start`
 
@@ -31,10 +32,9 @@ Download the complete source code of any website (including all assets) 🔨.
 
 # How To Contribute:
  - Open Issue with any bug you noticed.
- - Let us know if We&You can add new features.
- - PR and changes you think it'd be an added value.
+ - Let us know if We / You can add new features.
+ - Please create Pull Requests and changes you think it'd be an added value towards our program.
 
 
 Thank you so much,
-
 https://www.ahmed-ibrahim.com
