@@ -31,10 +31,9 @@ Download the complete source code of any website (including all assets) 🔨.
 
 
 # How To Contribute:
- - Open Issue with any bug you noticed.
- - Let us know if We / You can add new features.
- - Please create Pull Requests and changes you think it'd be an added value towards our program.
+ - Open Issue(s) with any bugs you notice.
+ - Please create Pull Requests if you think it'd be an added value towards our program.
 
 
-Thank you so much,
+Thank you,
 https://www.ahmed-ibrahim.com
