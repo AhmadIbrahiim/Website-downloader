@@ -32,6 +32,7 @@ Download the complete source code of any website (including all assets) 🔨.
 - `cd website-downloader`
 - `$ npm install`
 - `$ npm start`
+- `http://localhost:3000/'
 
 
 
