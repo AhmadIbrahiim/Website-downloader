@@ -1,14 +1,19 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader/badge)](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader)
 ## Complete Website Downloader 💾
 Download the complete source code of any website (including all assets) 🔨.
 
 👉 Live Demo: https://site-dwloader.herokuapp.com/
 
 ![enter image description here](https://github.com/AhmadIbrahiim/Website-downloader/blob/master/public/Record.gif?raw=true)
+<div align="center">
+
+  <a href="">![CodeFactor](https://www.codefactor.io/repository/github/ahmadibrahiim/website-downloader/badge)</a>
+
+</div>
+
 ## Description 📒
  Website downloader works with `wget` and `archiver` to download all websites assets and compress then sends it back to the user through socket channel
  
- **Wget params the being used**
+ **wget params the being used**
  
  `wget --mirror --convert-links --adjust-extension --page-requisites 
 --no-parent http://example.org`
@@ -23,18 +28,18 @@ Download the complete source code of any website (including all assets) 🔨.
 
 ## How to run it 🤔
 
-- git clone this repo
+- `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
+- `cd website-downloader`
 - `$ npm install`
 - `$ npm start`
+- `http://localhost:3000/'
 
 
 
 # How To Contribute:
- - Open Issue with any bug you noticed.
- - Let us know if We&You can add new features.
- - PR and changes you think it'd be an added value.
+ - Open Issue(s) with any bugs you notice.
+ - Please create Pull Requests if you think it would be an added value towards our program.
 
 
-Thank you so much,
-
+Thank you,
 https://www.ahmed-ibrahim.com
