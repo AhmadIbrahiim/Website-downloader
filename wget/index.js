@@ -16,7 +16,7 @@ module.exports=(io,data)=>{
  * --no-parent – When recurring do not ascend to the parent directory. It useful for restricting the download to only a portion of the site.
  */
 let website ="";
-const child = exec(`wget -mkEpnp ${data.website}`);
+const child = exec(`wget -mkEpnp --no-if-modified-since ${data.website}`);
 
 // read stdout from the current child.
 child.stderr.on("data",(response)=>{
