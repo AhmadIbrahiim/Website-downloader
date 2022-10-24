@@ -1,5 +1,5 @@
 ## Complete Website Downloader 💾
-Download the complete source code of any website (including all assets) 🔨.
+Download the complete source code of any website (including all assets) 🔨
 
 👉 Live Demo: https://site-dwloader.herokuapp.com/
 
