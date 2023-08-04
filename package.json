@@ -14,7 +14,7 @@
     "hbs": "~4.2.0",
     "http-errors": "~1.8.0",
     "jszip": "^3.8.0",
-    "morgan": "~1.9.1",
+    "morgan": "~1.10.0",
     "socket.io": "^2.5.0",
     "socket.io-client": "^2.5.0"
   }
