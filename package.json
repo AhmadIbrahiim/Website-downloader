@@ -1,10 +1,10 @@
 {
   "name": "website-downloader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "export NODE_ENV=Development && npm start"
+    "dev": "export NODE_ENV=Development && pnpm start"
   },
   "dependencies": {
     "archiver": "^3.1.1",
