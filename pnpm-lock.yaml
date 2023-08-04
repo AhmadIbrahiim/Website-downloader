@@ -27,8 +27,8 @@ dependencies:
     specifier: ^3.8.0
     version: 3.8.0
   morgan:
-    specifier: ~1.9.1
-    version: 1.9.1
+    specifier: ~1.10.0
+    version: 1.10.0
   socket.io:
     specifier: ^2.5.0
     version: 2.5.0
@@ -698,13 +698,13 @@ packages:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: false
 
-  /morgan@1.9.1:
-    resolution: {integrity: sha512-HQStPIV4y3afTiCYVxirakhlCfGkI161c76kKFca7Fk1JusM//Qeo1ej2XaMniiNeaZklMVrh3vTtIzpzwbpmA==}
+  /morgan@1.10.0:
+    resolution: {integrity: sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ==}
     engines: {node: '>= 0.8.0'}
     dependencies:
       basic-auth: 2.0.1
       debug: 2.6.9
-      depd: 1.1.2
+      depd: 2.0.0
       on-finished: 2.3.0
       on-headers: 1.0.2
     transitivePeerDependencies:
