@@ -1,29 +1,20 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="/socket.io/socket.io.js"></script>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-
-  </head>
-  <body>
-    {{{body}}}
-  </body>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120895783-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-120895783-4');
-</script>
+<html lang="en">
+<head>
+  <title>{{title}}</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/xml+svg" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/socket.io/socket.io.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+  {{{body}}}
+</body>
 
 <script>
   var numberOfFiles = 0;
@@ -72,10 +63,6 @@
         socket.emit('request', { token: localStorage['token'] , website});
    }
 
-
-
-
-
   // Generate token for each user for the first time.
   function generateToken(n) {
     var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -86,7 +73,6 @@
     return token;
 }
 </script>
-
 
 </html>
 
