@@ -1,13 +1,13 @@
 var util = require('util'),
     exec = require('child_process').exec;
-    var archiver = require('../archiver')
+    var archiver = require('./archiver');
 
 
 module.exports=(io,data)=>{
 
-// download all website assets 
+// download all website assets
 /**
- * wget --mirror --convert-links --adjust-extension --page-requisites 
+ * wget --mirror --convert-links --adjust-extension --page-requisites
  * --no-parent http://example.org
  * --mirror – Makes (among other things) the download recursive.
  * --convert-links – convert all the links (also to stuff like CSS stylesheets) to relative, so it will be suitable for offline viewing.

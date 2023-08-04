@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('website-downloader:server');
 var http = require('http');
 
@@ -22,8 +22,8 @@ app.set('port', port);
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 
-// Pass socket Object to it's modula 
-require('../socket/socket')(io)
+// Pass socket Object to it's modula
+require('./lib/socket')(io)
 /**
  * Listen on provided port, on all network interfaces.
  */
