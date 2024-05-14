@@ -37,7 +37,7 @@ Download the complete source code of any website (including all assets) 🔨.
 ## How to run it 🤔
 
 - `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
-- `cd website-downloader`
+- `cd Website-downloader`
 - `$ npm install`
 - `$ npm start`
 - `http://localhost:3000/`
