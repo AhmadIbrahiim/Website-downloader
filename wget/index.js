@@ -1,7 +1,8 @@
 var util = require('util'),
     exec = require('child_process').exec;
     var archiver = require('../archiver')
-
+    var fs = require('fs');
+    var path = require('path');
 
 module.exports=(io,data)=>{
 
@@ -33,4 +34,23 @@ child.stderr.on('close',(response)=>{
     io.emit(data.token,{progress:"Converting"})
     archiver(website,io,data)
 })
+
+// Handle process termination and cleanup
+child.on('exit', (code, signal) => {
+    if (signal === 'SIGTERM') {
+        console.log('Process terminated');
+        removePartiallyDownloadedFiles(website);
+    }
+});
+
+function removePartiallyDownloadedFiles(website) {
+    const directory = path.join(__dirname, '../', website);
+    fs.rmdir(directory, { recursive: true }, (err) => {
+        if (err) {
+            console.error(`Error while removing partially downloaded files: ${err.message}`);
+        } else {
+            console.log('Partially downloaded files removed successfully');
+        }
+    });
+}
 }
