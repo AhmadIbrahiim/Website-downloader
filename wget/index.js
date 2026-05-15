@@ -1,6 +1,4 @@
-var util = require('util'),
-    exec = require('child_process').exec,
-    execFile = require('child_process').execFile;
+var execFile = require('child_process').execFile;
     var archiver = require('../archiver')
     var fs = require('fs');
     var path = require('path');
