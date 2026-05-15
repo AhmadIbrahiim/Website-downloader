@@ -1,5 +1,6 @@
 var util = require('util'),
-    exec = require('child_process').exec;
+    exec = require('child_process').exec,
+    execFile = require('child_process').execFile;
     var archiver = require('../archiver')
     var fs = require('fs');
     var path = require('path');
@@ -16,16 +17,33 @@ module.exports=(io,data)=>{
  * --page-requisites – Download things like CSS style-sheets and images required to properly display the page offline.
  * --no-parent – When recurring do not ascend to the parent directory. It useful for restricting the download to only a portion of the site.
  */
-let website ="";
-const child = exec(`wget -mkEpnp --no-if-modified-since ${data.website}`);
+
+// Normalize URL - add http:// if protocol is missing
+let websiteUrl = data.website;
+if (!websiteUrl.startsWith('http://') && !websiteUrl.startsWith('https://')) {
+    websiteUrl = 'http://' + websiteUrl;
+}
+
+// Parse URL to validate it and extract the directory name wget will create.
+// For non-standard ports (e.g. localhost:3000) wget creates a directory named
+// "hostname:port", so we must include the port when it is non-default.
+let parsedUrl;
+try {
+    parsedUrl = new URL(websiteUrl);
+} catch (e) {
+    io.emit(data.token, { progress: 'Error: Invalid URL provided.' });
+    return;
+}
+
+const defaultPort = parsedUrl.protocol === 'https:' ? '443' : '80';
+const website = parsedUrl.port && parsedUrl.port !== defaultPort
+    ? `${parsedUrl.hostname}:${parsedUrl.port}`
+    : parsedUrl.hostname;
+
+const child = execFile('wget', ['-mkEpnp', '--no-if-modified-since', websiteUrl]);
 
 // read stdout from the current child.
 child.stderr.on("data",(response)=>{
-
-    if(response.startsWith("Resolving "))
-    {
-        website= response.substring(response.indexOf('Resolve ')+11,response.indexOf(' ('))
-    }
     io.emit(data.token,{progress:response})
 })
 
