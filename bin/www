@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
 /**
+ * Load environment variables from .env (if present).
+ * See .env.example for available options.
+ */
+
+require('dotenv').config();
+
+/**
  * Module dependencies.
  */
 

@@ -39,8 +39,19 @@ Download the complete source code of any website (including all assets) 🔨.
 - `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
 - `cd Website-downloader`
 - `$ npm install`
+- *(optional)* `cp .env.example .env` and edit values (e.g. change `PORT`)
 - `$ npm start`
-- `http://localhost:3000/`
+- `http://localhost:3000/` (or whichever `PORT` you set in `.env`)
+
+### Configuration
+
+The server reads optional settings from a `.env` file (loaded via [`dotenv`](https://github.com/motdotla/dotenv)).
+See `.env.example` for available variables. Currently supported:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `PORT` | `3000` | HTTP port the server listens on. Useful when 3000 is already taken by another local project. |
+| `NODE_ENV` | unset | Set to `Development` for verbose logging. |
 
 
 
