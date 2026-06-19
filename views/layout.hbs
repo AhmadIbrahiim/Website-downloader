@@ -64,12 +64,22 @@
    }
   })
   
-  // Download a website on click
-   const downloadBtn =  document.getElementById("download");
-   downloadBtn.onclick=()=>{
+  // Download a website on click (or when pressing Enter in the form)
+   function startDownload(){
         var website = document.getElementById('website').value
+        if(!website) return;
         console.log("Now downloading the website ... %s",website)
         socket.emit('request', { token: localStorage['token'] , website});
+   }
+   const downloadBtn =  document.getElementById("download");
+   downloadBtn.onclick = startDownload;
+   // Prevent the form's default GET /search submission (which 404s) and download instead
+   const downloadForm = document.querySelector('form.form');
+   if(downloadForm){
+     downloadForm.addEventListener('submit', function(e){
+       e.preventDefault();
+       startDownload();
+     });
    }
 
 
