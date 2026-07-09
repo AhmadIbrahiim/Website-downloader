@@ -1,0 +1,84 @@
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+input:-webkit-autofill, 
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+::-webkit-input-placeholder { / Chrome/Opera/Safari /
+    color: #000 !important;
+}
+::-moz-placeholder { / Firefox 19+ /
+    color: #000 !important;
+}
+::-ms-input-placeholder { / IE 10+ /
+    color: #000 !important;
+}
+::-moz-placeholder { / Firefox 18- /
+    color: #000 !important;
+}
+.owl-carousel .owl-dots{
+    margin: 0 !important;    
+}
+
+
+
+
+/* Jquery ui select css */
+.ui-state-default {
+    width: auto !important;
+}
+.ui-selectmenu-open .ui-widget-content {
+    border: 1px solid #1d1d1d !important;
+    background: #ffffff !important;
+    color: #222222 !important;
+    border-radius: 0 !important;
+}
+/* Jquery ui select hover bg css */
+.ui-selectmenu-open .ui-widget-content .ui-state-focus {
+    border: 1px solid #1d1d1d !important;
+    background: #1d1d1d !important;
+    font-weight: normal !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+}
+/* Jquery ui select hover some change css */
+.ui-selectmenu-open .ui-menu .ui-menu-item {
+    border: 1px solid transparent !important;
+    position: relative !important;
+    margin: 0;
+    padding: 5px 15px !important;
+    cursor: pointer !important;
+    font-size: 13px !important;
+    text-transform: none !important;
+}
+.ui-selectmenu-menu .ui-menu {
+    padding-bottom: 0px !important;
+}
+
+
+
+#contact-form input[type="text"].error{
+    border-color: red;
+}
+#contact-form input[type="email"].error{
+    border-color: red;
+}
+#contact-form select.error {
+    border-color: red;
+}
+#contact-form textarea.error{
+    border-color: red;
+}
+#contact-form label.error {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+

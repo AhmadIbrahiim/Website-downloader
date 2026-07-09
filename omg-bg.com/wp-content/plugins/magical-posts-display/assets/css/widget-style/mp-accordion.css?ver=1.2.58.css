@@ -1,0 +1,310 @@
+/* ===================================
+   Collapse/Accordion Animation Styles
+   =================================== */
+
+/* Base collapse styles - hidden by default */
+.collapse,
+.mgp-collapse {
+    display: none;
+    overflow: hidden;
+}
+
+/* Show state */
+.collapse.show,
+.collapse.mgp-show,
+.mgp-collapse.show,
+.mgp-collapse.mgp-show {
+    display: block;
+}
+
+/* Collapsing animation state */
+.mgp-collapsing {
+    display: block !important;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* Accordion wrapper */
+.accordion.mgaccordion,
+.mgaccordion {
+    overflow: hidden;
+}
+
+/* Accordion card spacing */
+.mgaccordion .mgp-card {
+    margin-bottom: 10px;
+}
+
+/* Clickable title cursor */
+.mgrc-title {
+    cursor: pointer;
+}
+
+.mgp-card-header.mg-accordion-title {
+    padding: 0;
+    position: relative;
+    background: transparent;
+}
+.mpdac-post-details a {
+    color: #fff;
+}
+.mpacc-btn {
+    margin-top: 1rem;
+}
+.mpacc-meta {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+.mg-curve-shape .mgp-card {
+    border: none;
+    box-shadow: inherit;
+}
+.mg-curve-shape .mgac-content {
+    width: 90%;
+    margin: 0 auto 8px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); 
+}
+.mg-curve-shape .mgrc-title {
+    border-radius: 20px 20px 0 0;
+}
+.eacolor .mgp-card-header.mg-accordion-title .mgrc-title{
+    background: linear-gradient(190deg, #130D6F 0%, #952598 80%);
+    color: #fff;
+}
+.mgaccordion.eacolor .mgac-mcontent{
+    background: linear-gradient(157deg, #130D6F 10%, #952598 80%);
+    color: #fff;
+}
+.mg-accordion-title h2{
+    font-size: 16px;
+    font-weight: 500;
+    margin:0;
+    color:#000;
+}
+.eacolor .mg-accordion-title h2{
+    color:#fff;
+}
+.mg-accordion-title h2:before {
+    display: none;
+}
+.mg-accordion-title .mgrc-title {
+    width: 100%;
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+}
+.mgc-icons {
+    display: block;
+    position: absolute;
+    top: 0;
+    min-width: 40px;
+    height: 100%;
+    text-align: center;
+}
+.mgc-icons.mgc-right-icon {
+    right: 20px;
+    left: auto;
+}
+
+.mgc-icons.mgc-left-icon {
+    left: 20px;
+    right: auto;
+}
+.mgc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    position: absolute;
+    right: 50%;
+    top: 0;
+}
+.mgaccordion .mgrc-title .mgc-icon svg {
+    width: 16px;
+    fill: #fff;
+}
+
+/* Icon toggle for collapsed/expanded states */
+.mgc-icon.mgc-icon-top {
+    display: none;
+}
+.collapsed .mgc-icon.mgc-icon-top,
+.mgp-collapsed .mgc-icon.mgc-icon-top {
+    display: flex;
+}
+.collapsed .mgc-icon.mgc-icon-bottom,
+.mgp-collapsed .mgc-icon.mgc-icon-bottom {
+    display: none;
+}
+.mgc-icon.mgc-icon-bottom {
+    display: flex;
+}
+
+.mgc-left-icon .mgc-icon {
+    position: absolute;
+    left: 0;
+    right: auto;
+}
+.mg-box-icon .mgc-icons {
+    box-shadow: 0 1px 6px 0 rgba(255,255,255,0.68)
+}
+
+.mgc-icon i {
+    position: relative;
+    top: 45%;
+    transform: translateY(-55%);
+}
+
+/* Open/Close icon transitions */
+.mgrc-title .mgc-close {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.mgrc-title .mgc-open {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.mgrc-title.collapsed .mgc-close,
+.mgrc-title.mgp-collapsed .mgc-close {
+    opacity: 1;
+}
+.mgrc-title.collapsed .mgc-open,
+.mgrc-title.mgp-collapsed .mgc-open {
+    opacity: 0;
+}
+
+.mgrc-item-right-right .mgrc-title {
+    padding-right: 75px;
+} 
+.mgrc-item-left-left .mgrc-title {
+    padding-left: 75px;
+}
+
+/*mg-curve-shape*/
+
+.mg-side-curve .mgrc-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.mg-side-curve .mgrc-title:before {
+    position: absolute;
+    top: -18px;
+    left: 55px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    content: "";
+    transform: rotate(45deg);
+}
+
+.mgp-card-body.mgac-content.mgac-effect1 {
+    transform: rotateY(90deg);
+    transition: transform 0.5s ease;
+}
+
+.show .mgp-card-body.mgac-content.mgac-effect1,
+.mgp-show .mgp-card-body.mgac-content.mgac-effect1,
+.mgp-card-body.mgac-content.mgac-effect1.show,
+.mgp-card-body.mgac-content.mgac-effect1.mgp-show {
+    transform: rotateY(0);
+}
+
+.mgp-card-body.mgac-content.mgac-effect2 {
+    transform: rotateX(90deg);
+    transition: transform 0.5s ease;
+}
+
+.show .mgp-card-body.mgac-content.mgac-effect2,
+.mgp-show .mgp-card-body.mgac-content.mgac-effect2,
+.mgp-card-body.mgac-content.mgac-effect2.show,
+.mgp-card-body.mgac-content.mgac-effect2.mgp-show {
+    transform: rotateX(0);
+}
+
+.mgp-card-body.mgac-content.mgac-effect3 {
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.show .mgp-card-body.mgac-content.mgac-effect3,
+.mgp-show .mgp-card-body.mgac-content.mgac-effect3,
+.mgp-card-body.mgac-content.mgac-effect3.show,
+.mgp-card-body.mgac-content.mgac-effect3.mgp-show {
+    transform: scale(1);
+}
+/* Products style in accordion*/
+.mgac-content .mpdac-product-image img{
+    max-width: 100%;
+    object-fit: cover;
+    min-height: 185px;
+    width: 100%;
+    height: auto;
+}
+
+.mgac-content .mpdac-product-image {
+    max-height: 300px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.mgac-content .mpdac-product-details {
+    text-align: left;
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
+}
+.mpdac-product-opations {
+    margin-top: 2rem;
+}
+.mpdac-product-btn a.button,
+.mpdac-product-btn a.added_to_cart {
+    padding: 10px 25px;
+    background: #000;
+    color: #fff;
+    margin: 0 0;
+    border-radius: 20px;
+    font-size: 16px;
+    display: inline-block;
+}
+.eacolor .mpdac-product-btn a.button,
+.eacolor .mpdac-product-btn a.added_to_cart {
+    background: #fff;
+    color: #000;
+}
+
+.mpdac-product-btn a.button.loading{
+    opacity: .25;
+    padding-right: 2.618em;
+    position: relative;
+}
+.mpdac-product-btn a.button.loading:after{
+    font-family: WooCommerce;
+    content: "\e01c";
+    vertical-align: top;
+    font-weight: 400;
+    position: absolute;
+    top: .618em;
+    right: 1em;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+.mpdac-product-opations .mpdac-product-price span {
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
+    background: transparent;
+}
+.eacolor .mpdac-product-opations .mpdac-product-price span {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    background: transparent;
+}
+.mpdac-product-price ins {
+    background: transparent;
+    margin-right: 1rem;
+}
+.mpdac-product-btn {
+    margin-top: 25px;
+}

@@ -1,0 +1,246 @@
+/*** 
+=============================================
+    Faq Page One Css
+=============================================
+***/
+.faq-page-one {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 110px 0 110px;
+    z-index: 10;
+}
+
+.faq-tab-button {
+    position: relative;
+    display: block;
+    padding-bottom: 60px;
+}
+
+.faq-tab-button .tabs-button-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ede8e6;
+    border-bottom: 1px solid #ede8e6;
+}
+
+.faq-tab-button .tabs-button-box .tab-btn-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 20%;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1;
+}
+
+.faq-tab-button .tabs-button-box .tab-btn-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #f9f5f3;
+    z-index: -1;
+    transform: perspective(400px) translateY(0px) scale(0);
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    transform-origin: right center;
+}
+
+.faq-tab-button .tabs-button-box .tab-btn-item:hover::before,
+.faq-tab-button .tabs-button-box .tab-btn-item.active-btn-item::before {
+    transform: perspective(400px) translateY(0px) scale(1);
+    transform-origin: left center;
+}
+
+.faq-tab-button .tabs-button-box .tab-btn-item h3 {
+    position: relative;
+    display: block;
+    color: var(--thm-gray);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 58px;
+    text-transform: uppercase;
+    font-family: var(--thm-font);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.faq-tab-button .tabs-button-box .tab-btn-item:hover h3,
+.faq-tab-button .tabs-button-box .tab-btn-item.active-btn-item h3 {
+    color: var(--thm-base);
+}
+
+
+
+.faq-page-one .tabs-content-box {
+    position: relative;
+    display: block;
+}
+
+.faq-page-one .tab-content-box-item {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    visibility: hidden;
+}
+
+.tab-content-box-item.tab-content-box-item-active {
+    position: relative;
+    visibility: visible;
+    z-index: 5;
+}
+
+.tab-content-box-item .faq-style1-content {
+    transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
+    -ms-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    transform: scaleY(0);
+}
+
+.tab-content-box-item.tab-content-box-item-active .faq-style1-content {
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+
+.faq-style1-content {
+    position: relative;
+    display: block;
+}
+
+.accordion-box {
+    position: relative;
+    display: block;
+}
+
+.accordion-box .block {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    transition: all 500ms ease;
+}
+
+.accordion-box .block:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-box .block .acc-content.current {
+    display: block;
+}
+
+
+
+.accordion-box .block .acc-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    background: #f9f5f3;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    border: 0px solid #dcdeee;
+    transition: all 500ms ease;
+}
+
+.accordion-box .block .acc-btn.active {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.accordion-box .block .acc-btn h3 {
+    color: var(--thm-black);
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 700;
+    transition: all 500ms ease;
+}
+
+.accordion-box .block .acc-btn.active h3 {
+    color: var(--thm-base);
+}
+
+.accordion-box .block .acc-btn .icon-outer {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    color: #a0a0a0;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 500ms ease;
+    z-index: 1;
+}
+
+.accordion-box .block .acc-btn.active .icon-outer {
+    color: var(--thm-base);
+}
+
+.accordion-box .block .acc-btn .icon-outer i:before {
+    font-weight: 400;
+}
+
+.accordion-box .block .acc-btn.active .icon-outer i:before {
+    position: relative;
+    font-size: 18px;
+    font-family: 'icomoon' !important;
+    font-weight: 400;
+    margin: 0px;
+    content: "\eab7";
+    transform: rotate(90deg);
+    display: inline-block;
+}
+
+
+.accordion-box .block .acc-content {
+    position: relative;
+    display: none;
+    padding-top: 33px;
+    padding-left: 90px;
+    padding-bottom: 22px;
+    padding-right: 90px;
+    border-top: none;
+}
+
+.accordion-box .block .acc-content p {
+    margin: 0;
+}
+
+
+
+
+
+.accordion-box.style2 .block .acc-btn {
+    background: #ffffff;
+    border: 1px solid #e5ebea;
+}
+
+.accordion-box.style2 .block .acc-btn.active {
+    background-color: #f1f6f5;
+    border-color: #f1f6f5;
+    box-shadow: none;
+}

@@ -1,0 +1,1202 @@
+/*** 
+=============================================
+    Breadcrumb area style
+=============================================
+***/
+.breadcrumb-area {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin-top: 50px;
+    z-index: 10;
+}
+
+.breadcrumb-area-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.breadcrumb-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.15;
+    content: "";
+    z-index: -1;
+}
+
+.breadcrumb-area-bg:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(18, 18, 18);
+    background: linear-gradient(0deg, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 0.5018382352941176) 70%, rgba(18, 18, 18, 1) 100%);
+    content: "";
+    z-index: -1;
+}
+
+
+.breadcrumb-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 237px 0 163px;
+    text-align: center;
+    z-index: 10;
+}
+
+
+
+.breadcrumb-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.breadcrumb-area .title h2 {
+    color: #ffffff;
+    font-size: 60px;
+    line-height: 1.07em;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+
+.breadcrumb-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.breadcrumb-menu ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-menu ul li {
+    position: relative;
+    float: none;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-right: 18px;
+    margin-right: 13px;
+    font-family: var(--thm-font);
+}
+
+.breadcrumb-menu ul li:last-child {
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.breadcrumb-menu ul li:before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 0;
+    bottom: 7px;
+    width: 1px;
+    background: #ffffff;
+    transform: rotate(15deg);
+}
+
+.breadcrumb-menu ul li:last-child:before {
+    display: none;
+}
+
+.breadcrumb-menu ul li a {
+    color: #ffffff;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu ul li:hover a,
+.breadcrumb-menu ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style2 area style
+=============================================
+***/
+.breadcrumb-style2-area {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.breadcrumb-style2-area-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.breadcrumb-style2-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.20;
+    content: "";
+    z-index: -1;
+}
+
+.breadcrumb-style2-area-shape {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 112px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    z-index: 1;
+}
+
+.breadcrumb-style2-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 141px 0 165px;
+    text-align: center;
+    z-index: 10;
+}
+
+.breadcrumb-style2-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.breadcrumb-style2-area .title h2 {
+    color: #ffffff;
+    font-size: 54px;
+    line-height: 1.1em;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+
+
+.breadcrumb-menu-style2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.breadcrumb-menu-style2 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-menu-style2 ul li {
+    position: relative;
+    float: none;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-right: 15px;
+    margin-right: 10px;
+    font-family: var(--thm-font);
+}
+
+.breadcrumb-menu-style2 ul li:last-child {
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.breadcrumb-menu-style2 ul li:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffffff;
+    margin: 10px 0;
+}
+
+.breadcrumb-menu-style2 ul li:last-child:before {
+    display: none;
+}
+
+.breadcrumb-menu-style2 ul li a {
+    color: #ffffff;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style2 ul li:hover a,
+.breadcrumb-menu-style2 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+
+.breadcrumb-style2-area--type2 {
+    position: relative;
+}
+
+.breadcrumb-style2-area--type2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(241, 246, 245);
+    background: linear-gradient(0deg, rgba(241, 246, 245, 0) 0%, rgba(241, 246, 245, 0.6979166666666667) 20%, rgba(241, 246, 245, 0.8995973389355743) 50%, rgba(241, 246, 245, 1) 100%);
+    z-index: -1;
+}
+
+.breadcrumb-style2-area--type2 .inner-content {
+    padding: 102px 0 103px;
+}
+
+.breadcrumb-style2-area--type2 .title h2 {
+    color: #15363a;
+}
+
+.breadcrumb-style2-area--type2 .breadcrumb-menu-style2 ul li a {
+    color: #15363a;
+}
+
+.breadcrumb-style2-area--type2 .breadcrumb-menu-style2 ul li:before {
+    background: #acb4c0;
+}
+
+.breadcrumb-style2-area--type2 .breadcrumb-menu-style2 ul li:hover a,
+.breadcrumb-style2-area--type2 .breadcrumb-menu-style2 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style3 area style
+=============================================
+***/
+.breadcrumb-style3-area {
+    position: relative;
+    display: block;
+    margin-top: 100px;
+    margin-left: 75px;
+    border-top-left-radius: 25px;
+    z-index: 10;
+}
+
+.breadcrumb-style3-area__inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-top-left-radius: 25px;
+}
+
+.breadcrumb-style3-area__inner:after {
+    position: absolute;
+    top: -110px;
+    left: -450px;
+    bottom: 0;
+    width: 1210px;
+    height: 1210px;
+    border-radius: 50%;
+    content: "";
+    background-color: rgba(var(--thm-base-rgb), .75);
+    z-index: -1;
+}
+
+.breadcrumb-style3-area-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.breadcrumb-style3-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.20;
+    content: "";
+    z-index: -1;
+}
+
+.breadcrumb-style3-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 339px 0 72px;
+    z-index: 10;
+}
+
+
+.breadcrumb-menu-style3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 11px;
+}
+
+.breadcrumb-menu-style3 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-menu-style3 ul li {
+    position: relative;
+    float: none;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-right: 10px;
+    font-family: var(--thm-font);
+}
+
+.breadcrumb-menu-style3 ul li:last-child {
+    margin-right: 0;
+}
+
+.breadcrumb-menu-style3 ul li a {
+    color: #ffffff;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style3 ul li:hover a,
+.breadcrumb-menu-style3 ul li.active {
+    color: var(--thm-black);
+}
+
+.breadcrumb-style3-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.breadcrumb-style3-area .title h2 {
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1.2em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+
+.breadcrumb-social-link-box {
+    position: relative;
+    display: block;
+}
+
+.breadcrumb-social-share-icon-box {
+    position: relative;
+    display: block;
+}
+
+.breadcrumb-social-share-icon-box .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #53556c;
+    border-radius: 50%;
+    color: #b5b9c4;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.breadcrumb-social-link-box ul {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transform: perspective(400px) translateY(0px) scale(0);
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    transform-origin: right center;
+}
+
+.breadcrumb-social-link-box .breadcrumb-social-share-icon-box:hover ul {
+    transform: perspective(400px) translateY(0px) scale(1);
+    transform-origin: left center;
+}
+
+.breadcrumb-social-link-box ul li {
+    position: relative;
+    display: block;
+    margin-right: 5px;
+}
+
+.breadcrumb-social-link-box ul li:last-child {
+    margin-right: 0;
+}
+
+.breadcrumb-social-link-box ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: var(--thm-base);
+    font-size: 16px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-social-link-box ul li a:hover {
+    color: #ffffff;
+    background: var(--thm-base);
+}
+
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style4 area style
+=============================================
+***/
+.breadcrumb-style4-area {
+    position: relative;
+    display: block;
+    background-color: #f7f6f9;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.breadcrumb-style4-area-shape1 {
+    position: absolute;
+    top: 40px;
+    left: 5%;
+}
+
+.breadcrumb-style4-area-shape2 {
+    position: absolute;
+    left: 350px;
+    bottom: 40px;
+}
+
+.breadcrumb-style4-area-shape3 {
+    position: absolute;
+    right: 2%;
+    bottom: 40px;
+}
+
+.breadcrumb-style4-area .big-text {
+    position: absolute;
+    top: 53px;
+    right: 10%;
+    color: #ffffff;
+    font-size: 200px;
+    line-height: 160px;
+    font-weight: 600;
+    text-transform: lowercase;
+    font-family: var(--thm-font-4);
+}
+
+.breadcrumb-style4-area .big-text.top35 {
+    top: 35px;
+}
+
+
+.breadcrumb-style4__content {
+    position: relative;
+    display: block;
+    padding: 113px 0 113px;
+}
+
+.breadcrumb-style4__content .title {
+    position: relative;
+    display: block;
+}
+
+.breadcrumb-style4__content .title h2 {
+    color: var(--thm-black);
+    font-size: 40px;
+    line-height: 1.1em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+.breadcrumb-menu-style4 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.breadcrumb-menu-style4 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 10px 20px 0px rgba(99, 87, 164, 0.08);
+    padding: 6px 20px 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.breadcrumb-menu-style4 ul li {
+    position: relative;
+    display: block;
+    color: #96959b;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.breadcrumb-menu-style4 ul li+li {
+    margin-left: 10px;
+}
+
+.breadcrumb-menu-style4 ul li a {
+    color: #96959b;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style4 ul li:hover a,
+.breadcrumb-menu-style4 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style5 area style
+=============================================
+***/
+.breadcrumb-style5-area {
+    position: relative;
+    display: block;
+    background: #f9f8ff;
+    z-index: 11;
+}
+
+.breadcrumb-style5-area-bg {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    bottom: 35px;
+    right: 100px;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    background-color: #646464;
+    background-blend-mode: overlay;
+    z-index: -1;
+}
+
+.breadcrumb-style5-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000;
+    border-radius: 10px;
+    opacity: 0.20;
+    content: "";
+    z-index: -1;
+}
+
+
+.breadcrumb-style5-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 143px 0 212px;
+    text-align: center;
+    z-index: 10;
+}
+
+.breadcrumb-style5-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.breadcrumb-style5-area .title h2 {
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1.1em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+
+.breadcrumb-menu-style5 {
+    position: relative;
+    display: block;
+}
+
+.breadcrumb-menu-style5 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breadcrumb-menu-style5 ul li {
+    position: relative;
+    display: block;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.breadcrumb-menu-style5 ul li+li {
+    margin-left: 10px;
+}
+
+.breadcrumb-menu-style5 ul li a {
+    color: #ffffff;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style5 ul li:hover a,
+.breadcrumb-menu-style5 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+.breadcrumb-style5-area .banner-style5-search-box {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+}
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style6 area style
+=============================================
+***/
+.breadcrumb-style6-area {
+    position: relative;
+    display: block;
+    background: #f2efee;
+    overflow: hidden;
+    z-index: 11;
+}
+
+.breadcrumb-style6-area-left {
+    position: absolute;
+    top: 102px;
+    left: 0;
+    bottom: -20px;
+    width: 50%;
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.breadcrumb-style6-area-right {
+    position: absolute;
+    top: 102px;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.breadcrumb-style6-area .inner-content {
+    position: relative;
+    display: block;
+    max-width: 585px;
+    width: 100%;
+    padding: 288px 0 177px;
+    z-index: 10;
+}
+
+.breadcrumb-style6-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.breadcrumb-style6-area .title h2 {
+    color: var(--thm-black);
+    font-size: 60px;
+    line-height: 1.2em;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.breadcrumb-style6-area .title p {
+    color: #757270;
+    margin: 19px 0 0;
+}
+
+
+
+.breadcrumb-menu-style6 {
+    position: absolute;
+    bottom: 32px;
+    right: 60px;
+}
+
+.breadcrumb-menu-style6 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-menu-style6 ul li {
+    position: relative;
+    display: block;
+    color: var(--thm-black);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.breadcrumb-menu-style6 ul li+li {
+    margin-left: 10px;
+}
+
+.breadcrumb-menu-style6 ul li a {
+    color: var(--thm-black);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style6 ul li:hover a,
+.breadcrumb-menu-style6 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style7 area style
+=============================================
+***/
+.breadcrumb-style7-area {
+    position: relative;
+    display: block;
+    background: #f9f8ff;
+    z-index: 11;
+}
+
+.breadcrumb-style7-area-bg {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    z-index: -1;
+}
+
+.breadcrumb-style7-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #323130;
+    opacity: 0.50;
+    content: "";
+    z-index: -1;
+}
+
+.breadcrumb-style7-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 93px 0 92px;
+    text-align: center;
+    z-index: 10;
+}
+
+.breadcrumb-style7-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.breadcrumb-style7-area .title h2 {
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 1.1em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+
+.breadcrumb-menu-style7 {
+    position: relative;
+    display: block;
+}
+
+.breadcrumb-menu-style7 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breadcrumb-menu-style7 ul li {
+    position: relative;
+    display: block;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.breadcrumb-menu-style7 ul li+li {
+    margin-left: 10px;
+}
+
+.breadcrumb-menu-style7 ul li a {
+    color: #ffffff;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style7 ul li:hover a,
+.breadcrumb-menu-style7 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style8 area style
+=============================================
+***/
+.breadcrumb-style8-area {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: #ffffff;
+    z-index: 10;
+}
+
+.breadcrumb-style8-area-shape-1 {
+    position: absolute;
+    top: -160px;
+    right: -30px;
+}
+
+.breadcrumb-style8-area-shape-2 {
+    position: absolute;
+    top: -50px;
+    left: 200px;
+}
+
+.breadcrumb-style8-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 113px 0 112px;
+    text-align: center;
+    z-index: 10;
+}
+
+.breadcrumb-style8-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.breadcrumb-style8-area .title h2 {
+    color: var(--thm-black);
+    font-size: 40px;
+    line-height: 1.2em;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+
+.breadcrumb-menu-style8 {
+    position: absolute;
+    left: 0;
+    bottom: 23px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-menu-style8 ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-menu-style8 ul li {
+    position: relative;
+    display: block;
+    float: left;
+    color: #7a7f7d;
+    font-size: 17px;
+    line-height: 26px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-right: 15px;
+    margin-right: 10px;
+    font-family: var(--thm-font);
+}
+
+.breadcrumb-menu-style8 ul li:last-child {
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.breadcrumb-menu-style8 ul li:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--thm-primary);
+    margin: 11px 0;
+}
+
+.breadcrumb-menu-style8 ul li:last-child:before {
+    display: none;
+}
+
+.breadcrumb-menu-style8 ul li a {
+    color: #7a7f7d;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.breadcrumb-menu-style8 ul li:hover a,
+.breadcrumb-menu-style8 ul li.active {
+    color: var(--thm-base);
+}
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style9 area style
+=============================================
+***/
+.breadcrumb-style9-area {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin-top: 50px;
+    z-index: 10;
+}
+
+.breadcrumb-style9-area-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.breadcrumb-style9-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.30;
+    content: "";
+    z-index: -1;
+}
+
+.breadcrumb-style9-area-bg:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background: rgb(26, 50, 80);
+    background: linear-gradient(0deg, rgba(26, 50, 80, 1) 0%, rgba(26, 50, 80, 0.30015756302521013) 40%, rgba(26, 50, 80, 0) 60%);
+    content: "";
+    z-index: -1;
+}
+
+
+.breadcrumb-style9-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 321px 0 153px;
+    text-align: center;
+    z-index: 10;
+}
+
+.breadcrumb-style9-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.breadcrumb-style9-area .title h2 {
+    color: #ffffff;
+    font-size: 60px;
+    line-height: 1.07em;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+
+
+
+/*** 
+=============================================
+    Breadcrumb Style10 area style
+=============================================
+***/
+.breadcrumb-style10-area {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin-top: 100px;
+    z-index: 10;
+}
+
+.breadcrumb-style10-area-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.breadcrumb-style10-area-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.35;
+    content: "";
+    z-index: -1;
+}
+
+
+.breadcrumb-style10-area .inner-content {
+    position: relative;
+    display: block;
+    padding: 261px 0 176px;
+    text-align: center;
+    z-index: 10;
+}
+
+.breadcrumb-style10-area.contact-page .inner-content {
+    padding: 220px 0 236px;
+}
+
+.breadcrumb-style10-area .title {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.breadcrumb-style10-area .title h2 {
+    color: #ffffff;
+    font-size: 60px;
+    line-height: 1.07em;
+    font-weight: 700;
+    text-transform: capitalize;
+}

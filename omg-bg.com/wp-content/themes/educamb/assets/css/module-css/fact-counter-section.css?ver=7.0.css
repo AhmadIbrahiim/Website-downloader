@@ -1,0 +1,379 @@
+/*** 
+=============================================
+    Fact Counter Area Css
+=============================================
+***/
+.fact-counter-area {
+    position: relative;
+    display: block;
+    background: var(--thm-base);
+    padding: 110px 0 110px;
+}
+
+.fact-counter-area .sec-title h2 {
+    color: #ffffff;
+}
+
+.fact-counter-area .sec-title .sub-title p {
+    color: #ffffff;
+}
+
+
+.fact-counter-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(var(--thm-black-rgb), .20);
+}
+
+.fact-counter-box.bottom {
+    border-bottom: none;
+}
+
+.single-fact-counter {
+    position: relative;
+    width: 50%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    padding-right: 110px;
+    padding-bottom: 46px;
+}
+
+.single-fact-counter.pdt50 {
+    padding-top: 50px;
+}
+
+.single-fact-counter.pdb0 {
+    padding-bottom: 0;
+}
+
+
+
+.single-fact-counter--style2 {
+    flex-direction: row-reverse;
+    text-align: left;
+    padding-left: 110px;
+    padding-right: 0;
+    border-left: 1px solid rgba(var(--thm-black-rgb), .20);
+}
+
+.single-fact-counter .title-holder {
+    position: relative;
+    display: block;
+}
+
+.single-fact-counter .count-box {
+    position: relative;
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: 700;
+    font-family: var(--thm-font-2);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-fact-counter .count-box span {
+    position: relative;
+    display: inline-block;
+}
+
+.single-fact-counter h3 {
+    color: #ffffff;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: var(--thm-font-2);
+    margin-top: 15px;
+}
+
+
+
+.single-fact-counter .icon-holder {
+    position: relative;
+    display: block;
+    width: 130px;
+}
+
+.single-fact-counter .icon-holder span {
+    position: relative;
+    display: inline-block;
+    font-size: 80px;
+    line-height: 80px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-fact-counter:hover .icon-holder span {
+    transform: scale(1.04);
+}
+
+
+
+/*** 
+=============================================
+    Fact Counter Style2 Area style
+=============================================
+***/
+.fact-counter-style2-area {
+    position: relative;
+    display: block;
+    padding: 200px 0px 60px;
+    background: #f1f6f5;
+    z-index: 1;
+}
+
+.fact-counter-style2-area .fact-counter-area-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    z-index: -1;
+}
+
+.fact-counter_box-style2 {
+    position: relative;
+}
+
+
+
+.single-fact-counter-style2 {
+    position: relative;
+    margin-bottom: 43px;
+}
+
+.single-fact-counter-style2 .icon {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.single-fact-counter-style2 .icon .inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #f1f6f5;
+    border-radius: 50%;
+}
+
+.single-fact-counter-style2 .icon span::before {
+    position: relative;
+    display: inline-block;
+    color: #3fa8b6;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.single-fact-counter-style2 .outer-box {
+    position: relative;
+    display: block;
+    padding-top: 24px;
+}
+
+.single-fact-counter-style2 .title {
+    position: relative;
+    display: block;
+    padding-bottom: 28px;
+    margin-bottom: 22px;
+}
+
+.single-fact-counter-style2 .title:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 5px;
+    background-color: #dfe6e5;
+}
+
+.single-fact-counter-style2 .title h3 {
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: capitalize;
+}
+
+.single-fact-counter-style2 .count-box {
+    position: relative;
+    display: block;
+    color: var(--thm-black);
+    font-size: 46px;
+    line-height: 60px;
+    font-weight: 700;
+    font-family: var(--thm-font-3);
+}
+
+.single-fact-counter-style2 .count-box span {
+    position: relative;
+    display: inline-block;
+    line-height: 46px;
+}
+
+.single-fact-counter-style2.style2 .icon span::before {
+    color: #fd61b9;
+}
+
+.single-fact-counter-style2.style3 .icon span::before {
+    color: #ffc000;
+}
+
+.single-fact-counter-style2.style4 .icon span::before {
+    color: #5e9cfd;
+}
+
+
+
+/*** 
+=============================================
+    Fact Counter Style4 Area Css
+=============================================
+***/
+.fact-counter-style4-area {
+    position: relative;
+    display: block;
+    padding: 110px 0px 60px;
+    background: #f7f6f9;
+    z-index: 1;
+}
+
+.fact-counter-style4-area-shape1 {
+    position: absolute;
+    top: 60px;
+    left: 10%;
+}
+
+.fact-counter-style4-area-shape2 {
+    position: absolute;
+    bottom: 0;
+    right: 6%;
+}
+
+.fact-counter-style4-area .big-title-box {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 200px;
+    line-height: 160px;
+    font-weight: 600;
+    font-family: var(--thm-font-4);
+}
+
+.single-fact-counter-style4 {
+    position: relative;
+    margin-bottom: 47px;
+}
+
+.single-fact-counter-style4 .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 72px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.single-fact-counter-style4 .icon .icon-bg {
+    position: absolute;
+    top: -27px;
+    left: -27px;
+    bottom: -27px;
+    right: -28px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.single-fact-counter-style4 .icon .round-shape {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: -2;
+}
+
+.single-fact-counter-style4 .icon .inner {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.single-fact-counter-style4 .icon .inner span {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.single-fact-counter-style4 .icon .inner span:before {
+    position: relative;
+    display: inline-block;
+    color: #6357a4;
+    font-size: 25px;
+    line-height: 25px;
+    transition: all 100ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-fact-counter-style4:hover .icon .inner span:before {
+    color: var(--thm-base);
+    transform: scale(1.05);
+}
+
+
+.single-fact-counter-style4 .outer-box {
+    position: relative;
+    display: block;
+    padding-top: 25px;
+}
+
+.single-fact-counter-style4 .outer-box .count-box {
+    position: relative;
+    display: block;
+    color: var(--thm-black);
+    font-size: 36px;
+    line-height: 30px;
+    font-weight: 600;
+    font-family: var(--thm-font-4);
+}
+
+.single-fact-counter-style4 .outer-box .count-outer span {
+    position: relative;
+    display: inline-block;
+    line-height: 36px;
+}
+
+.single-fact-counter-style4 .outer-box .title {
+    position: relative;
+    display: block;
+    padding-top: 13px;
+}
+
+.single-fact-counter-style4 .outer-box .title h3 {
+    font-size: 20px;
+    line-height: 20px;
+}

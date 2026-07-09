@@ -1,0 +1,1094 @@
+/*** 
+=============================================
+    Team Style1 Area Css
+=============================================
+***/
+.team-style1-area {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 110px 0 70px;
+    z-index: 10;
+}
+
+.team-style1__top {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 52px;
+}
+
+.team-style1__top .sec-title {
+    padding: 0;
+}
+
+.team-style1__top .btns-box {
+    position: relative;
+    display: block;
+    line-height: 0;
+    top: -2px;
+}
+
+
+
+
+.single-team-style1 {
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.single-team-style1 .img-holder {
+    position: relative;
+    display: block;
+}
+
+.single-team-style1 .img-holder .inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: var(--thm-base);
+    z-index: 1;
+}
+
+.single-team-style1 .img-holder .inner img {
+    width: 100%;
+    transition: all 500ms linear;
+    transition-delay: 0.2s;
+}
+
+.single-team-style1:hover .img-holder .inner img {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 0.20;
+    mix-blend-mode: normal;
+    transition: all 500ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style1 .img-holder .share-button {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    right: 20px;
+}
+
+.single-team-style1 .img-holder .share-button .icon {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    float: right;
+    cursor: pointer;
+}
+
+.single-team-style1 .img-holder .share-button .icon span:before {
+    position: relative;
+    display: block;
+    color: #a0a0a0;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.single-team-style1 .img-holder .share-button .social-links {
+    position: relative;
+    display: flex;
+    float: right;
+    margin-right: 10px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all 300ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style1 .img-holder .share-button:hover .social-links {
+    transform: scaleX(1.0);
+}
+
+.single-team-style1 .img-holder .share-button .social-links li {
+    position: relative;
+    display: block;
+    margin-right: 10px;
+}
+
+.single-team-style1 .img-holder .share-button .social-links li:last-child {
+    margin-right: 0;
+}
+
+.single-team-style1 .img-holder .share-button .social-links li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    color: var(--thm-gray);
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style1 .img-holder .share-button .social-links li a:hover {
+    color: #ffffff;
+    background-color: var(--thm-black);
+}
+
+
+
+.single-team-style1 .text-holder {
+    position: relative;
+    display: block;
+    padding-top: 31px;
+}
+
+.single-team-style1 .text-holder h3 {
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.single-team-style1 .text-holder h3 a {
+    color: var(--thm-black);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style1 .text-holder h3 a:hover {
+    color: var(--thm-base);
+}
+
+.single-team-style1 .text-holder h3 sup {
+    color: var(--thm-gray);
+    font-size: 17px;
+    font-weight: 500;
+    font-family: var(--thm-font);
+    top: -13px;
+}
+
+.single-team-style1 .text-holder h3 sup span {
+    color: var(--thm-base);
+}
+
+
+.single-team-style1 .text-holder .text {
+    position: relative;
+    display: block;
+    padding: 16px 0 18px;
+}
+
+.single-team-style1 .text-holder .text p {
+    margin: 0;
+}
+
+.single-team-style1 .text-holder .mail-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.single-team-style1 .text-holder .mail-info .icon {
+    width: 25px;
+    line-height: 16px;
+}
+
+.single-team-style1 .text-holder .mail-info .icon span:before {
+    position: relative;
+    display: inline-block;
+    color: #a0a0a0;
+    font-size: 20px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style1 .text-holder .mail-info:hover .icon span:before {
+    color: var(--thm-base);
+    transform: rotate(45deg);
+}
+
+.single-team-style1 .text-holder .mail-info a {
+    color: var(--thm-gray);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style1 .text-holder .mail-info a:hover {
+    color: var(--thm-base);
+}
+
+
+
+/*** 
+=============================================
+    Team Style2 Area Css
+=============================================
+***/
+.team-style2-area {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 110px 0 70px;
+    z-index: 10;
+}
+
+.single-team-style2 {
+    position: relative;
+    display: block;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.single-team-style2 .img-holder {
+    position: relative;
+    display: block;
+}
+
+.single-team-style2 .img-holder .inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.single-team-style2 .img-holder .inner:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: #000000;
+    opacity: 0.10;
+    transition: all 500ms ease;
+    z-index: 1;
+}
+
+.single-team-style2:hover .img-holder .inner:before {
+    opacity: 0.70;
+}
+
+.single-team-style2 .img-holder .inner img {
+    width: 100%;
+    transition: all 500ms ease;
+}
+
+.single-team-style2:hover .img-holder .inner img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+
+.single-team-style2 .img-holder .title-holder {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+    padding: 25px 0 25px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.single-team-style2 .img-holder .title-holder .img-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: blur(10px);
+    transition: all 500ms ease;
+    z-index: -1;
+}
+
+.single-team-style2:hover .img-holder .title-holder .img-bg {
+    filter: blur(0px);
+}
+
+.single-team-style2 .img-holder .title-holder .img-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    content: "";
+    background-color: var(--thm-black);
+    opacity: 0.10;
+    transition: all 500ms ease;
+}
+
+.single-team-style2:hover .img-holder .title-holder .img-bg:before {
+    opacity: 0.80;
+    background-color: var(--thm-base);
+}
+
+.single-team-style2 .img-holder .title-holder h3 {
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0 0 5px;
+}
+
+.single-team-style2 .img-holder .title-holder h3 a {
+    color: #ffffff;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style2 .img-holder .title-holder h3 a:hover {
+    color: #000000;
+}
+
+.single-team-style2 .img-holder .title-holder p {
+    color: #ffffff;
+    line-height: 20px;
+    margin: 0;
+}
+
+
+
+.single-team-style2 .social-link-box {
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 25px 0 10px;
+}
+
+.single-team-style2 .social-link-box .social-links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-team-style2 .social-link-box .social-links li {
+    position: relative;
+    display: block;
+    margin: 0 7.5px;
+}
+
+.single-team-style2 .social-link-box .social-links li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #dee5e4;
+    border-radius: 50%;
+    color: #636d7c;
+    font-size: 14px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style2:hover .social-link-box .social-links li a {
+    color: #ffffff;
+}
+
+.single-team-style2:hover .social-link-box .social-links li.tw a {
+    background-color: #55acee;
+    border-color: #55acee;
+    transition-delay: 0.1s;
+}
+
+
+.single-team-style2:hover .social-link-box .social-links li.fb a {
+    background-color: #3b5998;
+    border-color: #3b5998;
+    transition-delay: 0.2s;
+}
+
+.single-team-style2:hover .social-link-box .social-links li.linked a {
+    background-color: #0077b5;
+    border-color: #0077b5;
+    transition-delay: 0.3s;
+}
+
+
+
+/*** 
+=============================================
+    Team Style3 Area Css
+=============================================
+***/
+.team-style3-area {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 110px 0 110px;
+    z-index: 10;
+}
+
+.team-style3-area:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(240, 247, 243);
+    background: linear-gradient(180deg, rgba(240, 247, 243, 1) 0%, rgba(240, 247, 243, 1) 40%, rgba(255, 255, 255, 1) 100%);
+    z-index: -1;
+}
+
+.single-team-style3 {
+    position: relative;
+    display: block;
+    padding: 70px 0 0;
+}
+
+.single-team-style3 .img-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    border: 2px solid #e7ece9;
+    padding: 8px;
+    border-radius: 50%;
+    margin: 0 auto;
+    z-index: 3;
+    transition: .4s;
+    -webkit-transition: all .4s ease-in-out;
+}
+
+.single-team-style3:hover .img-holder {
+    border: 2px solid var(--thm-base);
+}
+
+.single-team-style3 .img-holder .inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #646464;
+}
+
+.single-team-style3 .img-holder .inner img {
+    width: 100%;
+    mix-blend-mode: luminosity;
+}
+
+.single-team-style3:hover .img-holder .inner img {
+    mix-blend-mode: normal;
+}
+
+
+
+.single-team-style3__inner {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 93px 0px 30px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+}
+
+.single-team-style3__inner .title-holder {
+    position: relative;
+    display: block;
+}
+
+.single-team-style3__inner .title-holder .title {
+    position: relative;
+    display: block;
+    z-index: 5;
+}
+
+.single-team-style3__inner .title-holder h3 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.single-team-style3__inner .title-holder h3 a {
+    color: var(--thm-black);
+}
+
+.single-team-style3__inner .title-holder h3 a:hover {
+    color: var(--thm-base);
+}
+
+.single-team-style3__inner .title-holder p {
+    margin: 0;
+}
+
+.single-team-style3__inner .title-holder .btn-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17px;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn {
+    position: relative;
+    display: block;
+    margin: 0 5px;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .chat {
+    position: relative;
+    display: inline-block;
+    color: #a1a4af;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+    background: #f0f7f3;
+    border-radius: 6px;
+    padding: 7px 20px 7px;
+    transition: all 200ms ease;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .chat:hover {
+    background: var(--thm-base);
+    color: #ffffff;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .chat span::before {
+    position: relative;
+    display: inline-block;
+    top: 1px;
+    font-size: 14px;
+    padding-right: 6px;
+    transition: all 200ms ease;
+}
+
+
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-icon {
+    position: relative;
+    display: inline-block;
+    color: #a1a4af;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+    border: 1px solid #f0f7f3;
+    padding: 6px 20px 6px;
+    border-radius: 6px;
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-icon:hover {
+    color: #ffffff;
+    background: var(--thm-base);
+    border: 1px solid var(--thm-base);
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-icon span::before {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    color: #a1a4af;
+    font-size: 14px;
+    padding-right: 6px;
+    transition: all 200ms ease;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-icon:hover span::before {
+    color: #ffffff;
+}
+
+
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-links {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    height: 45px;
+    width: 130px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: perspective(400px) translateY(0px) scale(0);
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    transform-origin: right center;
+
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn:hover .social-links {
+    transform: perspective(400px) translateY(-15px) scale(1);
+    transform-origin: left center;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-links::before {
+    content: "";
+    position: absolute;
+    right: 15px;
+    bottom: -9px;
+    border-top: 9px solid #ffffff;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    width: 18px;
+    height: 9px;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-links li {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    border-right: 1px solid #e7ece9;
+    line-height: 16px;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-links li:last-child {
+    border-right: none;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-links li a {
+    position: relative;
+    display: inline-block;
+    color: #a1a4af;
+    font-size: 15px;
+}
+
+.single-team-style3__inner .title-holder .btn-box .single-btn .social-links li a:hover {
+    color: var(--thm-base);
+}
+
+
+.team-style3-area .bottom-btn-box {
+    position: relative;
+    display: block;
+    padding-top: 50px;
+}
+
+.team-style3-area .bottom-btn-box a {
+    color: #ffffff;
+    background-color: var(--thm-black);
+}
+
+
+
+/*** 
+=============================================
+    Instructors Area Css
+=============================================
+***/
+.instructors-area {
+    position: relative;
+    display: block;
+    background-color: #ffffff;
+    padding: 110px 0 70px;
+}
+
+.single-team-style3 {
+    margin-bottom: 40px;
+}
+
+
+
+/*** 
+=============================================
+    Team Style7 Area Css
+=============================================
+***/
+.team-style7-area {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 110px 0 110px;
+}
+
+.single-team-style7 {
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.single-team-style7 .img-holder {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.single-team-style7 .img-holder .inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.single-team-style7 .img-holder .inner:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: var(--thm-black);
+    opacity: 0.0;
+    transition: all 500ms ease;
+    z-index: 1;
+}
+
+.single-team-style7:hover .img-holder .inner:before {
+    opacity: 0.90;
+}
+
+.single-team-style7 .img-holder .inner img {
+    width: 100%;
+    transition: all 500ms ease;
+}
+
+.single-team-style7:hover .img-holder .inner img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.single-team-style7 .img-holder .title-holder {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 5;
+    transform: perspective(400px) translateY(100%) scale(0.7);
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    transform-origin: bottom center;
+}
+
+.single-team-style7:hover .img-holder .title-holder {
+    transform: perspective(400px) translateY(0px) scale(1);
+    transform-origin: bottom center;
+}
+
+
+.single-team-style7 .img-holder .title-holder .share-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    background: #ffffff;
+    border-bottom-left-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style7:hover .img-holder .title-holder .share-icon:hover {
+    background-color: var(--thm-base);
+}
+
+.single-team-style7 .img-holder .title-holder .share-icon span {
+    position: relative;
+    display: block;
+    line-height: 0;
+}
+
+.single-team-style7 .img-holder .title-holder .share-icon span:before {
+    color: var(--thm-gray);
+    font-size: 20px;
+    line-height: 20px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style7 .img-holder .title-holder .share-icon:hover span:before {
+    color: #ffffff;
+}
+
+.single-team-style7 .img-holder .title-holder p {
+    position: relative;
+    display: inline-block;
+    padding: 6px 20px;
+    background-color: var(--thm-base);
+    color: #ffffff;
+    font-size: 17px;
+    border-bottom-right-radius: 7px;
+    margin: 0;
+}
+
+.single-team-style7 .img-holder .title-holder h3 {
+    font-size: 20px;
+    margin: 16px 20px 14px;
+}
+
+.single-team-style7 .img-holder .title-holder h3 a {
+    color: var(--thm-black);
+}
+
+
+.team-style7-bottom-btn-box {
+    position: relative;
+    display: block;
+    line-height: 0;
+    padding-top: 18px;
+}
+
+.team-style7-bottom-btn-box a {
+    color: #323130;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--thm-font-4);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.team-style7-bottom-btn-box a:hover {
+    color: var(--thm-base);
+}
+
+.team-style7-bottom-btn-box a span {
+    position: relative;
+    display: inline-block;
+    top: 1px;
+    line-height: 0;
+    padding-right: 9px;
+}
+
+.team-style7-bottom-btn-box a span:before {
+    color: var(--thm-base);
+    font-size: 15px;
+    line-height: 15px;
+}
+
+
+
+/*** 
+=============================================
+    Team Style8 Area Css
+=============================================
+***/
+.team-style8-area {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 110px 0 70px;
+}
+
+
+.single-team-style8 {
+    position: relative;
+    display: block;
+    margin-bottom: 37px;
+}
+
+.single-team-style8 .img-holder {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.single-team-style8 .img-holder .inner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: var(--thm-primary);
+    z-index: 1;
+}
+
+.single-team-style8 .img-holder .inner img {
+    width: 100%;
+    transition: all 500ms linear;
+    transition-delay: 0.2s;
+}
+
+.single-team-style8:hover .img-holder .inner img {
+    transform: scale(1.1) rotate(0deg);
+    opacity: 0.10;
+    mix-blend-mode: normal;
+    transition: all 500ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style8 .ovarlay-social-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    transform: perspective(400px) translateX(55px);
+    transform-origin: right;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style8:hover .ovarlay-social-links {
+    transform: perspective(400px) translateX(0px);
+}
+
+.single-team-style8 .ovarlay-social-links .social-links {
+    position: relative;
+    display: block;
+    background-color: var(--thm-base);
+}
+
+.single-team-style8 .ovarlay-social-links .social-links li {
+    position: relative;
+    display: block;
+    border-bottom: 1px solid #d4c85d;
+}
+
+.single-team-style8 .ovarlay-social-links .social-links li:last-child {
+    border-bottom: 0px solid;
+}
+
+.single-team-style8 .ovarlay-social-links .social-links li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 50px;
+    color: var(--thm-primary);
+    font-size: 16px;
+    line-height: 50px;
+    text-align: center;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+    z-index: 1;
+}
+
+.single-team-style8 .ovarlay-social-links .social-links li a:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--thm-black);
+    content: "";
+    z-index: -1;
+    transform: scale(0.0);
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+}
+
+.single-team-style8 .ovarlay-social-links .social-links li a:hover::before {
+    transform: scaleX(1.0);
+}
+
+.single-team-style8 .ovarlay-social-links .social-links li a:hover {
+    color: #ffffff;
+}
+
+
+.single-team-style8 .title-holder {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    margin-top: -30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 28px 0 0;
+    z-index: 10;
+}
+
+.single-team-style8 .title-holder h3 {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 0 10px;
+}
+
+.single-team-style8 .title-holder h3 a {
+    color: var(--thm-black);
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.single-team-style8 .title-holder h3 a:hover {
+    color: var(--thm-base);
+}
+
+.single-team-style8 .title-holder p {
+    line-height: 17px;
+    color: var(--thm-primary);
+    font-weight: 500;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*** 
+=============================================
+    Team Page Css
+=============================================
+***/
+.team-page {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 120px 0 80px;
+    z-index: 10;
+}
+
+.team-style1-carousel.owl-carousel .owl-stage-outer {
+    overflow: visible;
+}
+
+.team-style1-carousel.owl-carousel .owl-stage-outer .owl-item {
+    opacity: 0;
+    -webkit-transform: perspective(400px) rotateX(90deg) scaleY(0.5);
+    -ms-transform: perspective(400px) rotateX(90deg) scaleY(0.5);
+    transform: perspective(400px) rotateX(90deg) scaleY(0.5);
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    transform-origin: bottom;
+    transition-delay: .1s;
+    transition-timing-function: ease-in-out;
+    transition-duration: .5s;
+    transition-property: all;
+}
+
+.team-style1-carousel.owl-carousel .owl-stage-outer .owl-item.active {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateX(0deg) scaleY(1.0);
+    -ms-transform: perspective(400px) rotateX(0deg) scaleY(1.0);
+    transform: perspective(400px) rotateX(0deg) scaleY(1.0);
+    transition-delay: .1s;
+    transition-timing-function: ease-in-out;
+    transition-duration: .3s;
+    transition-property: all;
+}
