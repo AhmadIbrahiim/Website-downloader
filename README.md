@@ -34,6 +34,22 @@ Download the complete source code of any website (including all assets) 🔨.
 [![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://github.com/AhmadIbrahiim/Website-downloader)
 
 
+## Prerequisites ⚙️
+
+This app is a wrapper around the [`wget`](https://www.gnu.org/software/wget/) command-line
+tool — it shells out to `wget` to download website assets. **`wget` must be installed and
+available on your `PATH`, otherwise downloads silently produce empty `.zip` files.**
+
+- **Linux (Debian/Ubuntu):** `sudo apt-get install wget` (usually preinstalled)
+- **macOS:** `brew install wget`
+- **Windows:** `winget install JernejSimoncic.Wget` (or `choco install wget`)
+
+> **Windows notes:**
+> - After installing, **restart your terminal** so the updated `PATH` is picked up.
+> - Verify the install with `wget.exe --version` — it should print `GNU Wget 1.21.4`.
+> - In PowerShell, bare `wget` is a built-in alias for `Invoke-WebRequest`, so use
+>   `wget.exe` when testing. The app itself invokes `wget` via `cmd.exe`, so it works fine.
+
 ## How to run it 🤔
 
 - `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
