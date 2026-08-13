@@ -46,8 +46,9 @@ Download the complete source code of any website (including all assets) 🔨.
 
 - `git clone https://github.com/AhmadIbrahiim/Website-downloader.git`
 - `cd Website-downloader`
-- `$ npm install`
-- `$ npm start`
+- `$ pnpm install`
+- `$ pnpm start`
+- Optional dev on Windows: `$ pnpm run dev`
 - `http://localhost:3000/`
 
 ### Optional settings
