@@ -88,5 +88,14 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
+
+  if (addr && typeof addr === 'object') {
+    var url = 'http://localhost:' + addr.port + '/';
+    console.log('Website Downloader started successfully.');
+    console.log('Open this in your browser: ' + url);
+    debug('Listening on ' + bind);
+    return;
+  }
+
   debug('Listening on ' + bind);
 }
