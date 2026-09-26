@@ -3,6 +3,7 @@ var crypto = require('crypto');
 var fs = require('fs');
 var path = require('path');
 var archive = require('../archiver');
+var ssrf = require('../security/ssrf');
 
 /**
  * Every download gets its own directory under downloads/, which keeps two
@@ -15,6 +16,8 @@ var DOWNLOAD_ROOT = path.join(__dirname, '..', 'downloads');
 // disk. Both limits can be raised through the environment.
 var QUOTA = process.env.DOWNLOAD_QUOTA || '100m';
 var TIMEOUT_MS = Number(process.env.DOWNLOAD_TIMEOUT_MS) || 5 * 60 * 1000;
+// Hard cap on how many bytes the archiver is allowed to write out.
+var MAX_OUTPUT_BYTES = Number(process.env.MAX_OUTPUT_BYTES) || 200 * 1024 * 1024;
 
 /**
  * wget --mirror --convert-links --adjust-extension --page-requisites
@@ -25,12 +28,39 @@ var TIMEOUT_MS = Number(process.env.DOWNLOAD_TIMEOUT_MS) || 5 * 60 * 1000;
  * --page-requisites – Download things like CSS style-sheets and images required to properly display the page offline.
  * --no-parent – When recurring do not ascend to the parent directory. It useful for restricting the download to only a portion of the site.
  */
-module.exports = (socket, data, onFinished) => {
+module.exports = async (socket, data, onFinished, audit) => {
   var done = typeof onFinished === 'function' ? onFinished : function () {};
-  var send = (payload) => socket.emit(data.token, payload);
+  var send = (payload) => {
+    try { socket.emit(data && data.token, payload); }
+    catch (err) { /* socket may already be gone */ }
+  };
 
-  var target = parseTarget(data.website);
+  var startTs = Date.now();
+  var clientIp = (socket.request && socket.request.socket && socket.request.socket.remoteAddress) || 'unknown';
+  var recordEvent = (outcome, extra) => {
+    if (audit && typeof audit.record === 'function') {
+      audit.record({
+        ts: new Date(startTs).toISOString(),
+        ip: clientIp,
+        url: data && data.website,
+        outcome: outcome,
+        durationMs: Date.now() - startTs,
+        extra: extra || {},
+      });
+    }
+  };
+
+  var target;
+  try {
+    target = await parseTarget(data && data.website);
+  } catch (err) {
+    recordEvent('parse-error', { reason: err.message });
+    send({ error: err.message });
+    done();
+    return null;
+  }
   if (!target) {
+    recordEvent('rejected');
     send({ error: 'That does not look like a website address. Try something like https://example.com' });
     done();
     return null;
@@ -41,6 +71,7 @@ module.exports = (socket, data, onFinished) => {
   try {
     fs.mkdirSync(jobDir, { recursive: true });
   } catch (err) {
+    recordEvent('mkdir-error', { reason: err.message });
     send({ error: 'Could not create a working directory on the server: ' + err.message });
     done();
     return null;
@@ -52,6 +83,7 @@ module.exports = (socket, data, onFinished) => {
     '-mkEpnp',
     '--no-if-modified-since',
     '--quota=' + QUOTA,
+    '--max-redirect=5',
     target.href
   ], { cwd: jobDir, maxBuffer: 32 * 1024 * 1024 });
 
@@ -70,6 +102,7 @@ module.exports = (socket, data, onFinished) => {
     settled = true;
     clearTimeout(timer);
     removeJobDir(jobDir);
+    recordEvent('wget-failed', { reason: message });
     send({ error: message });
     done();
   };
@@ -88,6 +121,9 @@ module.exports = (socket, data, onFinished) => {
   child.stderr.on('data', (chunk) => {
     var text = chunk.toString();
     stderrTail = stderrTail.concat(text.split('\n')).slice(-60);
+    // Cap the per-message progress payload: a single line can be megabytes
+    // when wget is logging the response body of a misbehaving server.
+    if (text.length > 4096) text = text.slice(0, 4096) + '\n... [truncated]';
     send({ progress: text });
   });
 
@@ -98,6 +134,7 @@ module.exports = (socket, data, onFinished) => {
     if (cancelled) {
       settled = true;
       removeJobDir(jobDir);
+      recordEvent('cancelled');
       done();
       return;
     }
@@ -121,11 +158,13 @@ module.exports = (socket, data, onFinished) => {
     send({ progress: 'Converting' });
 
     var zipName = target.hostname.replace(/[^a-zA-Z0-9._-]/g, '_') + '-' + jobId;
-    archive(jobDir, zipName, (err, name) => {
+    archive(jobDir, zipName, MAX_OUTPUT_BYTES, (err, name, bytes) => {
       removeJobDir(jobDir);
       if (err) {
+        recordEvent('archive-failed', { reason: err.message });
         send({ error: 'The site downloaded but could not be compressed: ' + err.message });
       } else {
+        recordEvent('completed', { bytes: bytes, zip: name });
         send({ progress: 'Completed', file: name });
       }
       done();
@@ -141,11 +180,13 @@ module.exports = (socket, data, onFinished) => {
 };
 
 /**
- * Accepts what the user typed and returns a URL only if it is a real http(s)
- * address. Anything else is rejected before it reaches wget.
+ * Accepts what the user typed, validates the URL shape, then runs the SSRF
+ * guard (synchronous hostname checks followed by an async DNS resolution +
+ * IP-range classification). Returns the validated URL object or throws with
+ * a user-facing error message.
  */
-function parseTarget(input) {
-  if (typeof input !== 'string' || !input.trim()) return null;
+async function parseTarget(input) {
+  if (typeof input !== 'string' || !input.trim()) throw new Error('empty url');
   var raw = input.trim();
   var url;
   try {
@@ -154,10 +195,28 @@ function parseTarget(input) {
     // called "file" instead of rejecting it.
     url = new URL(/^[a-z][a-z0-9+.-]*:/i.test(raw) ? raw : 'http://' + raw);
   } catch (err) {
-    return null;
+    throw new Error('That does not look like a website address. Try something like https://example.com');
   }
-  if (url.protocol !== 'http:' && url.protocol !== 'https:') return null;
-  if (!url.hostname) return null;
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+    throw new Error('Only http:// and https:// URLs are allowed.');
+  }
+  if (!url.hostname) {
+    throw new Error('The URL has no hostname.');
+  }
+
+  var ssrfOpts = ssrf.getOptions();
+  var nameReason = ssrf.isBlockedByName(url.hostname, ssrfOpts);
+  if (nameReason) {
+    throw new Error('Hostname blocked by policy: ' + nameReason);
+  }
+  var ipReason = ssrf.isBlockedIPLiteral(url.hostname);
+  if (ipReason) {
+    throw new Error('IP address blocked: ' + ipReason);
+  }
+  var resolvedReason = await ssrf.isBlockedHost(url.hostname, ssrfOpts);
+  if (resolvedReason) {
+    throw new Error('Hostname blocked by policy: ' + resolvedReason);
+  }
   return url;
 }
 

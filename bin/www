@@ -20,15 +20,24 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-var io = require('socket.io')(server);
 
-// Pass socket Object to it's modula 
-require('../socket/socket')(io)
+// Guard against the original bug: bind to loopback by default, not 0.0.0.0.
+// Operators who want a public-facing deployment can opt in with BIND=0.0.0.0
+// after also setting AUTH_TOKEN, ALLOWED_HOSTNAMES, and a reverse proxy.
+var BIND = process.env.BIND || '127.0.0.1';
+
+var io = require('socket.io')(server, {
+  cors: { origin: false },   // same-origin only
+});
+
+// Pass socket Object to its module
+require('../socket/socket')(io);
+
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, onListening);
+server.listen(port, BIND, onListening);
 server.on('error', onError);
 
 /**
@@ -87,6 +96,12 @@ function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
-    : 'port ' + addr.port;
+    : (addr.address + ':' + addr.port);
   debug('Listening on ' + bind);
+  console.log('website-downloader listening on http://' + bind);
+  console.log('  bind       = ' + BIND);
+  console.log('  auth       = ' + (process.env.AUTH_TOKEN ? 'on (token shared with client)' : 'OFF'));
+  console.log('  audit log  = ' + (process.env.AUDIT_LOG_PATH || './logs/downloads.log'));
+  console.log('  rate limit = ' + (process.env.RATE_LIMIT_MAX || 10) + ' req / ' +
+              (process.env.RATE_LIMIT_WINDOW_MS || 60000) + 'ms per IP');
 }

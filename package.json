@@ -1,21 +1,29 @@
 {
   "name": "website-downloader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
+  "description": "Hardened fork of AhmadIbrahiim/Website-downloader: SSRF blocklist, AUTH_TOKEN, rate-limit, audit log, deps upgrades.",
+  "license": "MIT",
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "export NODE_ENV=Development && npm start"
+    "dev": "export NODE_ENV=development && npm start",
+    "audit": "npm audit --omit=dev",
+    "test": "node ./test/security.test.js && node ./test/integration.test.js"
   },
   "dependencies": {
-    "archiver": "^3.1.1",
-    "cookie-parser": "~1.4.4",
+    "archiver": "^7.0.1",
+    "cookie-parser": "~1.4.7",
     "debug": "~2.6.9",
-    "express": "~4.19.2",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.4.1",
     "hbs": "~4.2.0",
     "http-errors": "~1.6.3",
-    "jszip": "^3.8.0",
-    "morgan": "~1.9.1",
-    "socket.io": "^2.5.0",
-    "socket.io-client": "^2.5.0"
+    "jszip": "^3.10.1",
+    "morgan": "^1.12.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -3,29 +3,20 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="referrer" content="no-referrer">
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="/socket.io/socket.io.js"></script>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-
   </head>
   <body>
     {{{body}}}
   </body>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120895783-4"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  // AUTH_TOKEN is injected server-side at template render time so the
+  // static HTML page never embeds it in source control.
+  var AUTH_TOKEN = '{{authToken}}';
 
-  gtag('config', 'UA-120895783-4');
-</script>
-
-<script>
   var numberOfFiles = 0;
   const downloadWebsite = document.getElementsByClassName('btn-success')[0];
   const downloadBtn = document.getElementById('download');
@@ -33,101 +24,89 @@
   const progressBar = document.getElementById('progress');
   const filesLine = document.getElementById('nFilesP');
   const filesCount = document.getElementById('nFiles');
-  // Looked up once. This used to be declared inside one branch of the handler
-  // while the other branches relied on the browser's implicit window global.
   const log = document.getElementById('log');
 
-  // connect to current socket.io server
-  var socket = io.connect(document.URL);
-  if(!localStorage['token'])
-  localStorage['token']=generateToken(20);
+  // 4.x socket.io client signature: io(url, opts). The shared token must
+  // travel on the handshake; the server validates it before accepting the
+  // connection, otherwise it gets rejected with 'unauthorized'.
+  var socket = io(document.URL, {
+    auth: { token: AUTH_TOKEN },
+    transports: ['websocket', 'polling'],
+    reconnectionAttempts: 3,
+  });
 
-  // wait for events for this token
-  socket.on(localStorage['token'],(event)=>{
-  console.log(event)
+  socket.on('connect_error', function (err) {
+    progressBar.hidden = true;
+    log.textContent = '';
+    const failure = document.createElement('strong');
+    failure.style.color = '#c0392b';
+    failure.textContent = 'Connection refused: ' + err.message;
+    log.appendChild(failure);
+    downloadBtn.disabled = false;
+  });
 
-  // The server now says so when a download fails, instead of reporting an
-  // empty archive as a finished download.
-  if(event.error)
-  {
-       progressBar.hidden=true;
-       log.textContent='';
-       const failure=document.createElement('strong');
-       failure.style.color='#c0392b';
-       failure.textContent=event.error;
-       log.appendChild(failure);
-       downloadBtn.disabled=false;
-       return;
+  if (!localStorage['token']) localStorage['token'] = generateToken(20);
+
+  socket.on(localStorage['token'], (event) => {
+    console.log(event);
+
+    if (event.error) {
+      progressBar.hidden = true;
+      log.textContent = '';
+      const failure = document.createElement('strong');
+      failure.style.color = '#c0392b';
+      failure.textContent = event.error;
+      log.appendChild(failure);
+      downloadBtn.disabled = false;
+      return;
+    }
+
+    progressBar.hidden = false;
+    if (event.progress === 'Converting') {
+      log.textContent = '100%! Compressing your website...';
+    } else if (event.progress === 'Completed') {
+      progressBar.hidden = true;
+      log.textContent = 'Compressing completed successfully!';
+      downloadWebsite.style.display = '';
+      downloadWebsite.onclick = function () {
+        window.location = '/sites/' + event.file + '.zip';
+      };
+      downloadBtn.disabled = false;
+    } else {
+      if (event.progress.includes('200 OK')) {
+        numberOfFiles++;
+      }
+      filesLine.hidden = false;
+      filesCount.textContent = numberOfFiles;
+      log.textContent = event.progress;
+    }
+  });
+
+  function startDownload() {
+    var website = websiteInput.value;
+    if (!website.trim()) return;
+    console.log('Now downloading the website ... %s', website);
+    numberOfFiles = 0;
+    filesCount.textContent = '0';
+    log.textContent = '';
+    downloadWebsite.style.display = 'none';
+    downloadBtn.disabled = true;
+    socket.emit('request', { token: localStorage['token'], website: website });
   }
 
-  progressBar.hidden=false;
-  if(event.progress=="Converting")
-  {
-    log.textContent='100%! Compressing your website...'
+  downloadBtn.onclick = startDownload;
+  document.getElementById('downloadForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    startDownload();
+  });
 
-  }
-   else if(event.progress=="Completed")
-   {
-        progressBar.hidden=true;
-        log.textContent='Compressing completed successfully !'
-        downloadWebsite.style.display=''
-        downloadWebsite.onclick=function()
-        {
-         window.location='/sites/'+event.file+".zip";
-        }
-        downloadBtn.disabled=false;
-
-   }
-   else
-   {
-        if(event.progress.includes('200 OK'))
-        {
-            numberOfFiles++;
-        }
-        filesLine.hidden=false;
-        filesCount.textContent=numberOfFiles
-        // textContent, not innerHTML: this text comes from the site being
-        // downloaded and should never be parsed as markup.
-        log.textContent=event.progress
-   }
-  })
-
-  // Download a website on click
-   function startDownload()
-   {
-        var website = websiteInput.value
-        if(!website.trim()) return;
-        console.log("Now downloading the website ... %s",website)
-        numberOfFiles=0;
-        filesCount.textContent='0';
-        log.textContent='';
-        downloadWebsite.style.display='none';
-        downloadBtn.disabled=true;
-        socket.emit('request', { token: localStorage['token'] , website});
-   }
-   downloadBtn.onclick=startDownload;
-   // Pressing Enter used to submit the form to /search, which does not exist
-   // and returned a 404 page.
-   document.getElementById('downloadForm').addEventListener('submit',(e)=>{
-        e.preventDefault();
-        startDownload();
-   });
-
-
-
-
-
-  // Generate token for each user for the first time.
   function generateToken(n) {
     var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     var token = '';
-    for(var i = 0; i < n; i++) {
-        token += chars[Math.floor(Math.random() * chars.length)];
+    for (var i = 0; i < n; i++) {
+      token += chars[Math.floor(Math.random() * chars.length)];
     }
     return token;
-}
+  }
 </script>
-
-
 </html>
-

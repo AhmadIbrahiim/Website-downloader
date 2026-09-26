@@ -32,3 +32,4 @@ downloads
 
 # Archives generated for users
 public/sites/*.zip
+logs/

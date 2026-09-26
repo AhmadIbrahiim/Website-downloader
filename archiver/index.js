@@ -6,18 +6,22 @@ var SITES_DIR = path.join(__dirname, '..', 'public', 'sites');
 
 /**
  * Zips sourceDir into public/sites/<zipName>.zip and reports the outcome
- * through the callback.
+ * through the callback. Caps the archive at maxBytes so a zip bomb from
+ * an attacker-controlled wget output cannot OOM the server.
  *
  * Every failure here used to be thrown from inside an event handler, which
  * took the whole server down for every connected user. Failures are now passed
  * back to the caller so a single bad download only affects that one request.
  */
-module.exports = (sourceDir, zipName, callback) => {
+module.exports = (sourceDir, zipName, maxBytes, callback) => {
   var settled = false;
+  var totalBytes = 0;
+  var exceededCap = false;
   var finish = (err) => {
     if (settled) return;
     settled = true;
-    callback(err, zipName);
+    try { output.end(); } catch (_) { /* already closed */ }
+    callback(err, err ? null : zipName, totalBytes);
   };
 
   try {
@@ -33,10 +37,25 @@ module.exports = (sourceDir, zipName, callback) => {
     zlib: { level: 9 } // Sets the compression level.
   });
 
+  // Track archive bytes against the configured cap. abort() stops the
+  // pipe; the output stream's 'close' handler still fires so cleanup runs.
+  archive.on('data', function (chunk) {
+    totalBytes += chunk.length;
+    if (maxBytes && totalBytes > maxBytes) {
+      exceededCap = true;
+      archive.abort();
+    }
+  });
+
   // listen for all archive data to be written
   // 'close' event is fired only when a file descriptor is involved
   output.on('close', function () {
-    console.log(archive.pointer() + ' total bytes written to ' + zipPath);
+    if (exceededCap) {
+      finish(new Error('Archive exceeded the ' + Math.round(maxBytes / (1024 * 1024)) +
+                       ' MB cap and was discarded.'));
+      return;
+    }
+    console.log(totalBytes + ' total bytes written to ' + zipPath);
     finish(null);
   });
 
