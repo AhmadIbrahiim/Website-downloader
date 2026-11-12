@@ -1,44 +1,325 @@
+<div class="app-shell">
+  <!-- Quiet Top Bar (64px) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <svg class="brand-glyph" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M2 12h20"></path>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span class="brand-title">Website Downloader</span>
+      </a>
 
+      <div class="topbar-actions">
+        <span class="conn-status" id="connPill" title="WebSocket connection status">
+          <span class="conn-dot" aria-hidden="true"></span>
+          <span id="connText">Connecting</span>
+        </span>
 
-<!-- partial:index.partial.html -->
-<header>
-  <div aria-busy="true" id="progress" hidden aria-label="Loading, please wait." role="progressbar"></div>
-</header>
-<main role="main">
-  <img src="https://www.google.com/inbox/assets/images/intro/intro-logo.png" width="100" alt="" />
-  <h1>Website Downloader</h1>
-  <p>Download all the source code and assets of any website </p>
-   <div class="container">
-  <div class="row">
-    <div class="col-lg-12" style="float: none; margin: 0 auto;">
-      <div id="custom-search-input">
-          <form class="form" id="downloadForm">
-        <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg" id="website" placeholder="https://www.google.com" />
-                <span class="input-group-btn">
-                    <button class="btn btn-info btn-lg" id="download" type="button">
-                        <i class="glyphicon glyphicon-download"></i>
-                    </button>
-                </span><br>
-              </form>
+        <a
+          class="nav-link"
+          href="https://github.com/Ahmadibrahiim/Website-downloader"
+          target="_blank"
+          rel="noopener noreferrer"
+        >GitHub</a>
 
-        </div><br>
-          <center><!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/Ahmadibrahiim/Website-downloader" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Ahmadibrahiim/Website-downloader on GitHub">Star</a></center>
-
-<a href="https://www.buymeacoffee.com/aibrahim" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-              
+        <button type="button" class="icon-btn" id="themeToggle" title="Switch color theme" aria-label="Switch color theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path><path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path><path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
       </div>
-      <br>
     </div>
-  </div>
-  <h5 hidden id='nFilesP'>Total Downloaded file: <span  id='nFiles' style="color: red;font-weight: bold">10</span></h5>
-  <p  class="log" id='log'></p>
-  <button style="display: none" class="btn btn-success">Download website assets</button>
-</div> 
+  </header>
 
+  <main class="main-content">
+    <!-- Left-Aligned Utility Hero -->
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="hero-title">Mirror any website for offline use</h1>
+        <p class="hero-subtitle">
+          Recursively fetch HTML, stylesheets, scripts, and media with <code>wget</code>, convert links to relative paths, and export a single <code>.zip</code> archive
+        </p>
+      </div>
 
-  
-</main>
-<!-- partial -->
-  
+      <form class="command-form" id="downloadForm" novalidate>
+        <div class="command-bar" id="commandBar">
+          <span class="command-prefix" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </span>
+
+          <input
+            type="url"
+            class="command-input"
+            id="website"
+            placeholder="https://example.com"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Website URL to mirror"
+          />
+
+          <div class="command-controls">
+            <button type="button" class="control-btn" id="clearBtn" hidden title="Clear address" aria-label="Clear address">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+
+            <button type="button" class="control-btn" id="pasteBtn" title="Paste address from clipboard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              </svg>
+              <span>Paste</span>
+            </button>
+
+            <button class="primary-btn" id="download" type="submit">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
+              <span id="downloadBtnText">Mirror site</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="command-meta">
+          <span class="meta-label">Sample targets:</span>
+          <button type="button" class="text-link chip-btn" data-url="https://example.com">example.com</button>
+          <span class="meta-sep" aria-hidden="true">/</span>
+          <button type="button" class="text-link chip-btn" data-url="https://info.cern.ch">info.cern.ch</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Live Mirror Workspace (present immediately as product frame) -->
+    <section class="workspace" id="workspace">
+      <!-- 4-Stage Pipeline Panel -->
+      <div class="panel stepper-panel">
+        <div class="stepper-header">
+          <div class="target-summary">
+            <span class="status-text" id="jobStatusBadge">Idle</span>
+            <span class="target-url mono" id="activeTargetLabel">No active mirror</span>
+          </div>
+          <div class="stepper-actions">
+            <button type="button" class="danger-btn" id="cancelBtn" hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="12" height="12" x="6" y="6" rx="1"></rect>
+              </svg>
+              <span>Cancel</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="stepper" id="stepper">
+          <div class="step" data-step="1">
+            <div class="step-node mono">1</div>
+            <div class="step-info">
+              <div class="step-title">Connect</div>
+              <div class="step-desc">Validate address</div>
+            </div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="2">
+            <div class="step-node mono">2</div>
+            <div class="step-info">
+              <div class="step-title">Mirror</div>
+              <div class="step-desc">Fetch assets</div>
+            </div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="3">
+            <div class="step-node mono">3</div>
+            <div class="step-info">
+              <div class="step-title">Compress</div>
+              <div class="step-desc">Build archive</div>
+            </div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="4">
+            <div class="step-node mono">4</div>
+            <div class="step-info">
+              <div class="step-title">Ready</div>
+              <div class="step-desc">Export .zip</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-track" id="progressTrack" hidden>
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Completion Banner -->
+      <div class="result-card success-card" id="resultCard" hidden>
+        <div class="result-icon success-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div class="result-body">
+          <h2 class="result-title">Archive ready for download</h2>
+          <p class="result-meta" id="resultMeta">Compressed successfully</p>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="secondary-btn" id="newJobBtn">Mirror another</button>
+          <button type="button" class="primary-btn btn-success" id="downloadZipBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" x2="12" y1="15" y2="3"></line>
+            </svg>
+            <span>Download .zip</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Error Banner -->
+      <div class="result-card error-card" id="errorCard" hidden>
+        <div class="result-icon error-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" x2="12" y1="8" y2="12"></line>
+            <line x1="12" x2="12.01" y1="16" y2="16"></line>
+          </svg>
+        </div>
+        <div class="result-body">
+          <h2 class="result-title">Mirror stopped</h2>
+          <p class="result-meta error-message" id="errorMessage"></p>
+          <p class="error-tip" id="errorTip" hidden></p>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="secondary-btn" id="retryBtn">Try again</button>
+        </div>
+      </div>
+
+      <!-- Telemetry Row (Asymmetric: 2 compact numeric stats + 1 wide breakdown) -->
+      <div class="telemetry-grid">
+        <div class="stat-card">
+          <div class="stat-label">Files saved</div>
+          <div class="stat-value mono" id="nFiles">0</div>
+          <div class="stat-sub" id="filesSub">HTTP 200 responses</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Elapsed time</div>
+          <div class="stat-value mono" id="elapsedTimer">00:00</div>
+          <div class="stat-sub" id="timerSub">Run duration</div>
+        </div>
+
+        <div class="stat-card stat-card-wide">
+          <div class="stat-label-row">
+            <span class="stat-label">Asset breakdown</span>
+            <span class="stat-legend mono" id="breakdownSummary">0 assets</span>
+          </div>
+          <div class="breakdown-bar" id="breakdownBar" aria-label="Asset type distribution">
+            <span class="seg seg-html" id="segHtml" style="width: 0%"></span>
+            <span class="seg seg-css" id="segCss" style="width: 0%"></span>
+            <span class="seg seg-js" id="segJs" style="width: 0%"></span>
+            <span class="seg seg-img" id="segImg" style="width: 0%"></span>
+            <span class="seg seg-other" id="segOther" style="width: 0%"></span>
+          </div>
+          <div class="breakdown-counts">
+            <span class="tag"><i class="dot dot-html"></i>HTML <strong class="mono" id="countHtml">0</strong></span>
+            <span class="tag"><i class="dot dot-css"></i>CSS <strong class="mono" id="countCss">0</strong></span>
+            <span class="tag"><i class="dot dot-js"></i>JS <strong class="mono" id="countJs">0</strong></span>
+            <span class="tag"><i class="dot dot-img"></i>Media <strong class="mono" id="countImg">0</strong></span>
+            <span class="tag"><i class="dot dot-other"></i>Other <strong class="mono" id="countOther">0</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual-Mode Asset Stream & Terminal Console -->
+      <div class="panel stream-panel">
+        <div class="stream-toolbar">
+          <div class="tab-group" role="tablist">
+            <button type="button" class="tab-btn active" id="tabVisual" role="tab" aria-selected="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Asset stream</span>
+              <span class="tab-count mono" id="feedCount">0</span>
+            </button>
+            <button type="button" class="tab-btn" id="tabTerminal" role="tab" aria-selected="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" x2="20" y1="19" y2="19"></line>
+              </svg>
+              <span>Console</span>
+            </button>
+          </div>
+
+          <div class="stream-controls">
+            <label class="toggle-check">
+              <input type="checkbox" id="autoScrollToggle" checked />
+              <span>Auto-scroll</span>
+            </label>
+            <button type="button" class="mini-btn" id="copyLogBtn">Copy log</button>
+          </div>
+        </div>
+
+        <div class="activity-strip">
+          <span class="activity-label">Target</span>
+          <span class="activity-path mono" id="currentActivity">Enter a URL above to begin mirroring</span>
+        </div>
+
+        <div class="stream-view" id="visualView" role="tabpanel">
+          <div class="feed-empty" id="feedEmpty">
+            <p id="feedEmptyText">Downloaded pages, stylesheets, scripts, and media appear here as <code>wget</code> fetches them</p>
+          </div>
+          <ul class="asset-feed" id="assetFeed"></ul>
+        </div>
+
+        <div class="stream-view terminal-view" id="terminalView" role="tabpanel" hidden>
+          <pre class="terminal-pre mono" id="log"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Archives (persisted in localStorage) -->
+    <section class="history-section" id="historySection" hidden>
+      <div class="history-header">
+        <div>
+          <h2 class="history-title">Recent archives</h2>
+          <p class="history-sub">Saved in this browser for quick download</p>
+        </div>
+        <button type="button" class="mini-btn" id="clearHistoryBtn">Clear history</button>
+      </div>
+      <div class="history-grid" id="historyGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-note">Powered by <code>wget</code> and <code>Socket.IO</code></span>
+      <div class="footer-links">
+        <a
+          class="github-button"
+          href="https://github.com/Ahmadibrahiim/Website-downloader"
+          data-icon="octicon-star"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star Ahmadibrahiim/Website-downloader on GitHub"
+        >Star</a>
+        <a class="footer-link" href="https://www.buymeacoffee.com/aibrahim" target="_blank" rel="noopener noreferrer">
+          Buy me a coffee
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
